@@ -1,11 +1,9 @@
 package day02.ex00;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Map;
-import java.util.Scanner;
 
 public class Analyser {
     static byte[] bytes = new byte[8];
@@ -14,12 +12,10 @@ public class Analyser {
     public static void readBytes(String path) {
         try {
             FileInputStream inputStream = new FileInputStream(path);
-            Scanner scanner = new Scanner(inputStream);
             if (inputStream.read(bytes) != -1) {
                 printBytesInHex();
                 compareBytes();
             }
-            scanner.close();
             inputStream.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
